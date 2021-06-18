@@ -15,9 +15,12 @@ const axiosClient = axios.create({
 // Add a request interceptor
 axiosClient.interceptors.request.use(
   (config: any) => {
-    config.headers.Authorization = "Bearer " + LSManager.getToken();
-    // Must return config
-    return config;
+    const token = LSManager.getToken()
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+      // Must return config
+      return config;
+    }
   },
   (error: Error) => {
     // Do something with request error

@@ -11,7 +11,7 @@ const login = async (username: string, password: string) => {
     // LSManager.setToken(res);
     return res.data;
   } catch (error) {
-    throw error("Error when login");
+    throw Error("Error when login");
   }
 };
 
