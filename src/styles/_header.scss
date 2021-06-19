@@ -1,0 +1,28 @@
+@import 'styles/custom';
+
+.menu-item {
+  color: $gray-dark;
+  &:hover {
+    color: $blue-blur;
+    cursor: pointer;
+  }
+}
+
+.auth-menu {
+  margin-left: auto;
+  .btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 10px;
+    outline: none;
+    &-transparent {
+      &:hover {
+        color: $blue-blur;
+      }
+    }
+    &-primary {
+      background-color: $blue-blur;
+      color: $white;
+    }
+  }
+}

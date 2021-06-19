@@ -1,28 +1,28 @@
 interface Router {
-  path: string;
-  exact: boolean;
-  componentPath: string;
-  protected: false;
+  path: string
+  exact: boolean
+  componentPath: string
+  protected: false
 }
 
 export const routes: Router[] = [
   {
-    path: "home",
+    path: 'home',
     exact: true,
-    componentPath: "pages/Home",
-    protected: false
+    componentPath: 'pages/Home',
+    protected: false,
   },
   {
-    path: "login",
+    path: 'login',
     exact: true,
-    componentPath: "pages/Login",
-    protected: false
+    componentPath: 'pages/Login',
+    protected: false,
   },
   //test-dev-area
   {
-    path: "sandbox",
+    path: 'sandbox',
     exact: true,
-    componentPath: "components/uncommon/Sandbox",
-    protected: false
-  }
-];
+    componentPath: 'components/uncommon/Sandbox',
+    protected: false,
+  },
+]
