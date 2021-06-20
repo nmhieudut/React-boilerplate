@@ -1,18 +1,12 @@
 import axiosClient from 'core/api'
-import { Services } from 'core/api/List'
-// import { LSManager } from "utils/localstoragemanager";
-const login = async (username: string, password: string) => {
+import Rest from 'core/api/List'
+
+const loginCall = async (username: string, password: string) => {
   const userPayload = {
     username,
     password,
   }
-  try {
-    const res = await axiosClient.post(Services.login, userPayload)
-    // LSManager.setToken(res);
-    return res.data
-  } catch (error) {
-    throw Error('Error when login')
-  }
+  return await axiosClient.post(Rest.login, userPayload)
 }
 
-export { login }
+export { loginCall }

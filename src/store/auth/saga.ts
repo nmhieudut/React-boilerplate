@@ -1,28 +1,32 @@
 import { LSManager } from './../../core/utils/localstoragemanager'
 import * as actionTypes from './types'
-import * as actions from './action'
-import { login } from 'services/auth'
-import { call, put, takeLatest } from 'typed-redux-saga'
+import { loginCall } from 'services/auth'
+import { call } from 'typed-redux-saga'
+import { put, takeLatest } from 'redux-saga/effects'
 
-function* signIn(action: actionTypes.SignInAction) {
+function* login(action: actionTypes.SignInActionType) {
+  console.log('===herer', action)
+  // return
   try {
-    yield put({ type: actionTypes.SIGN_IN, isLoading: true })
-    const response = yield* call(
-      login,
+    const data: any = yield* call(
+      loginCall,
       action.payload.username,
       action.payload.password
     )
-    if (response) {
+    console.log('========', data)
+    if (data) {
       yield put({
         type: actionTypes.SIGN_IN_SUCCESS,
         loggedInUser: {
-          avatar: response.photo,
-          displayName: response.display_name,
+          avatar: data.photo,
+          displayName: data.display_name,
         },
       })
-      LSManager.setToken(response.token)
+      LSManager.setToken(data.token)
     }
+    return
   } catch (e: any) {
+    console.log('--------', { e })
     yield put({
       type: actionTypes.SIGN_IN_FAILED,
       error: e.response.data.error,
@@ -32,6 +36,6 @@ function* signIn(action: actionTypes.SignInAction) {
 }
 
 function* watchedSagas() {
-  yield takeLatest(actions.SignIn, signIn)
+  yield takeLatest(actionTypes.SIGN_IN, login)
 }
 export default watchedSagas

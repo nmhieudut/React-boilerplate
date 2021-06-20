@@ -1,5 +1,7 @@
-export const Services = {
+const Rest = {
   // auth services
-  login: "/login",
-  register: "/register"
-};
+  login: '/login',
+  register: '/register',
+}
+
+export default Rest

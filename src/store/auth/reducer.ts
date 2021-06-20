@@ -1,24 +1,22 @@
-import { SIGN_IN, SIGN_IN_SUCCESS, SIGN_IN_FAILED } from './types';
-import { AuthActionType } from './types';
+import { SIGN_IN, SIGN_IN_SUCCESS, SIGN_IN_FAILED } from './types'
+import { AuthActionType } from './types'
 
 export interface LoggedInUser {
-  avatar: string | null;
-  displayName: string | null;
+  avatar: string | null
+  displayName: string | null
 }
 
 export interface AuthState {
-  isLoading: boolean;
-  loggedInUser: LoggedInUser | null;
-  success: boolean | null;
-  error: string | null;
+  isLoading: boolean
+  loggedInUser: LoggedInUser | null
+  error: string | null
 }
 
 const initialState: AuthState = {
   isLoading: false,
   loggedInUser: null,
-  success: null,
-  error: null
-};
+  error: null,
+}
 
 export default function AuthReducer(
   state = initialState,
@@ -28,23 +26,21 @@ export default function AuthReducer(
     case SIGN_IN:
       return {
         ...state,
-        isLoading: true
-      };
+        isLoading: true,
+      }
     case SIGN_IN_SUCCESS:
       return {
         ...state,
         isLoading: false,
         loggedInUser: action.payload,
-        success: true
-      };
+      }
     case SIGN_IN_FAILED:
       return {
-        ...state,
         isLoading: false,
         loggedInUser: null,
-        error: action.payload
-      };
+        error: action.payload,
+      }
     default:
-      return state;
+      return state
   }
 }

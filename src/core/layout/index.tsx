@@ -1,5 +1,6 @@
-import Container from './Container'
 import Header from './Header'
+import Container from './Container'
+import Footer from './Footer'
 import { BrowserRouter } from 'react-router-dom'
 
 export const Layout = () => {
@@ -9,6 +10,7 @@ export const Layout = () => {
         <div className="wrapper pt-6 px-20">
           <Header />
           <Container />
+          <Footer />
         </div>
       </div>
     </BrowserRouter>

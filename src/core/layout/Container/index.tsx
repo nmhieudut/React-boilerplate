@@ -1,9 +1,6 @@
-import React from 'react';
-import Routers from 'routers';
+import Routers from 'routers'
 
 const Container = () => {
-  return (
-      <Routers />
-  );
-};
+  return <Routers />
+}
 export default Container
