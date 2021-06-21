@@ -22,7 +22,7 @@ export const routes: IRouter[] = [
   {
     path: 'sandbox',
     exact: true,
-    componentPath: 'components/uncommon/Sandbox',
+    componentPath: 'pages/Sandbox',
     protected: false,
   },
 ]

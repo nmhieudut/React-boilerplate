@@ -1,10 +1,8 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { routes } from './routes';
+import { routes } from 'constants/route';
 
-interface Props {}
-
-export default function Routers(props: Props) {
+export default function Routers() {
   return (
       <Suspense fallback={<div className='text-center'>Loading...</div>}>
         <Switch>
