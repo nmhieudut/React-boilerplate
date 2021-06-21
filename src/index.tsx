@@ -1,21 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "styles/main.scss";
-import App from "core/app";
-import i18n from "plugins/i18n";
-import { I18nextProvider } from "react-i18next";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import 'styles/main.scss'
+import App from 'core/app'
+import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
-    <I18nextProvider i18n={i18n}>
-      <App />
-    </I18nextProvider>
+    <App />
   </React.StrictMode>,
-  document.getElementById("root")
-);
+  document.getElementById('root')
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals()

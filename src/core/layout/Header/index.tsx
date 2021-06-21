@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { SignInAction } from 'store/auth'
 import { RootState } from 'store/reducers'
+import { navMenu } from 'constants/navMenu'
 export interface IHeaderProps {}
 
 export default function Header(props: IHeaderProps) {
@@ -23,15 +24,13 @@ export default function Header(props: IHeaderProps) {
         <Link className="menu-item" to="/home">
           Home
         </Link>
-        <Link className="menu-item ml-20" to="/">
-          Blog
-        </Link>
-        <Link className="menu-item ml-20" to="/">
-          Docs
-        </Link>
-        <Link className="menu-item ml-20" to="/">
-          Contact
-        </Link>
+        {navMenu.map((item, i) => {
+          return (
+            <Link key={i} className="menu-item ml-20" to={item.path}>
+              {item.children}
+            </Link>
+          )
+        })}
       </div>
       <div className="auth-menu">
         <Link onClick={onLogin} className="btn btn-transparent" to="#">

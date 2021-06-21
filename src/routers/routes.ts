@@ -1,11 +1,11 @@
-interface Router {
+interface IRouter {
   path: string
   exact: boolean
   componentPath: string
   protected: false
 }
 
-export const routes: Router[] = [
+export const routes: IRouter[] = [
   {
     path: 'home',
     exact: true,
