@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "styles/main.scss";
 import App from "core/app";
-import i18n from "i18n/translation";
+import i18n from "plugins/i18n";
 import { I18nextProvider } from "react-i18next";
 import reportWebVitals from "./reportWebVitals";
 

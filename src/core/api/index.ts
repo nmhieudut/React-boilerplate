@@ -41,5 +41,5 @@ axiosClient.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-console.log('--------', { axiosClient })
+
 export default axiosClient

@@ -5,15 +5,12 @@ import { call } from 'typed-redux-saga'
 import { put, takeLatest } from 'redux-saga/effects'
 
 function* login(action: actionTypes.SignInActionType) {
-  console.log('===herer', action)
-  // return
   try {
     const data: any = yield* call(
       loginCall,
       action.payload.username,
       action.payload.password
     )
-    console.log('========', data)
     if (data) {
       yield put({
         type: actionTypes.SIGN_IN_SUCCESS,
@@ -26,7 +23,6 @@ function* login(action: actionTypes.SignInActionType) {
     }
     return
   } catch (e: any) {
-    console.log('--------', { e })
     yield put({
       type: actionTypes.SIGN_IN_FAILED,
       error: e.response.data.error,

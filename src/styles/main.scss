@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import 'styles/header';
+@import 'styles/footer';
 @import 'styles/custom';
 @import 'styles/global';
 
@@ -20,4 +21,10 @@ h6 {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body, html {
+  height:  100%;
+  margin:  0px auto;
+  padding: 0px auto;
 }

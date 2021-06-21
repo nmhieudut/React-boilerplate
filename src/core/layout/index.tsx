@@ -10,9 +10,9 @@ export const Layout = () => {
         <div className="wrapper pt-6 px-20">
           <Header />
           <Container />
-          <Footer />
         </div>
       </div>
+      <Footer />
     </BrowserRouter>
   )
 }
