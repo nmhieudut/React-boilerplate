@@ -1,7 +1,15 @@
 {
   "content": {
-    "functional": "Functional",
-    "class": "Class",
-    "text": "This is text"
+    "menu": {
+      "home": "Home",
+      "blog": "Blog",
+      "docs": "Docs",
+      "contact": "Contact",
+      "login": "Log In",
+      "signup": "Sign Up"
+    },
+    "footer": {
+      "changeLocale": "Change language"
+    }
   }
 }

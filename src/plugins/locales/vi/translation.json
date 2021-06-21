@@ -1,7 +1,15 @@
 {
   "content": {
-    "functional": "Hàm",
-    "class": "Lớp",
-    "text": "Đây là văn bản"
+    "menu": {
+      "home": "Trang chủ",
+      "blog": "Bờ lốc",
+      "docs": "Tài liệu",
+      "contact": "Liên hệ",
+      "login": "Đăng nhập",
+      "signup": "Đăng kí"
+    },
+    "footer": {
+      "changeLocale": "Đổi ngôn ngữ"
+    }
   }
 }

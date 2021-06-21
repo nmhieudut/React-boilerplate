@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { SignInAction } from 'store/auth'
 import { RootState } from 'store/reducers'
 import { navMenu } from 'constants/navMenu'
+import t from 'core/utils/translation'
 export interface IHeaderProps {}
 
 export default function Header(props: IHeaderProps) {
@@ -15,6 +16,7 @@ export default function Header(props: IHeaderProps) {
     }
     dispatch(SignInAction(config))
   }
+  console.log("Header render")
   return (
     <div className="flex items-center">
       <Link to="#" className="header-logo mr-24">
@@ -22,22 +24,22 @@ export default function Header(props: IHeaderProps) {
       </Link>
       <div className="flex justify-center items-center ml-auto">
         <Link className="menu-item" to="/home">
-          Home
+          {t('content.menu.home')}
         </Link>
         {navMenu.map((item, i) => {
           return (
             <Link key={i} className="menu-item ml-20" to={item.path}>
-              {item.children}
+              {t(`content.menu.${item.children}`)}
             </Link>
           )
         })}
       </div>
       <div className="auth-menu">
         <Link onClick={onLogin} className="btn btn-transparent" to="#">
-          Log In
+          {t('content.menu.login')}
         </Link>
         <Link className="btn btn-primary" to="#">
-          Sign Up
+          {t('content.menu.signup')}
         </Link>
       </div>
     </div>
