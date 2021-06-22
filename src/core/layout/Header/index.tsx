@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { SignInAction } from 'store/auth'
 import { RootState } from 'store/reducers'
-import { navMenu } from 'constants/navMenu'
+import { navMenu } from 'constants/navbar'
 import t from 'core/utils/translation'
 export interface IHeaderProps {}
 
@@ -16,7 +16,7 @@ export default function Header(props: IHeaderProps) {
     }
     dispatch(SignInAction(config))
   }
-  console.log("Header render")
+
   return (
     <div className="flex items-center">
       <Link to="#" className="header-logo mr-24">
@@ -28,7 +28,7 @@ export default function Header(props: IHeaderProps) {
         </Link>
         {navMenu.map((item, i) => {
           return (
-            <Link key={i} className="menu-item ml-20" to={item.path}>
+            <Link key={i} className="menu-item ml-20" to={item.page_path}>
               {t(`content.menu.${item.children}`)}
             </Link>
           )

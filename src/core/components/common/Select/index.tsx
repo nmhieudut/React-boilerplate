@@ -7,11 +7,15 @@ interface ISelectProps {
   values: IValue[]
   callback: (e: string) => void
   selected: string | undefined
+  style?: React.CSSProperties | undefined
+  className?: string | undefined
 }
 const Select = (props: ISelectProps) => {
-  const { values, callback, selected } = props
+  const { values, callback, selected, style, className } = props
   return (
     <select
+      className={className}
+      style={style}
       defaultValue={selected}
       onChange={(e) => callback(e.currentTarget.value)}
     >

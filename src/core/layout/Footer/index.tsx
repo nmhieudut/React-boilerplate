@@ -12,7 +12,7 @@ const Footer = () => {
     },
     {
       value: 'vi',
-      text: 'Vietnamese',
+      text: 'Việt Nam',
     },
   ]
   const defaultLang = LSManager.getLanguage()?.toString()
@@ -24,14 +24,14 @@ const Footer = () => {
     LSManager.setLanguage(lang)
     window.location.reload()
   }
-  console.log('Footer render', defaultLanguage)
   return (
     <div className="footer">
       <div className="max-w-screen-2xl mx-auto">
         <div className="wrapper pt-6 px-20">
           <div>
-            {t("content.footer.changeLocale")}: {" "}
+            {t("content.footer.changeLocale")}:
             <Select
+              className="footer__language-select"
               callback={switchLanguage}
               values={langValues}
               selected={defaultLanguage}
