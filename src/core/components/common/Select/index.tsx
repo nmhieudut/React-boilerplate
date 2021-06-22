@@ -1,6 +1,6 @@
 interface IChildrenOption {
-  option: any
-  text: string
+  value: string
+  option: string
 }
 
 interface ISelectProps {
@@ -20,9 +20,9 @@ const Select = (props: ISelectProps) => {
       defaultValue={selected}
       onChange={(e) => onChangeSelect(e.currentTarget.value)}
     >
-      {options.map(({ option, text }, i) => (
-        <option key={i} value={option}>
-          {text}
+      {options.map(({ value, option }, i) => (
+        <option key={i} value={value}>
+          {option}
         </option>
       ))}
     </select>

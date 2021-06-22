@@ -1,10 +1,10 @@
 export const langValues = [
   {
-    option: 'en',
-    text: 'English',
+    value: 'en',
+    option: 'English',
   },
   {
-    option: 'vi',
-    text: 'Việt Nam',
+    value: 'vi',
+    option: 'Việt Nam',
   },
 ]
