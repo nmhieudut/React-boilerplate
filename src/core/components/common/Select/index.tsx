@@ -1,27 +1,28 @@
-interface IValue {
-  value: any
-  text: string
+interface IChildrenOption {
+  value: string
+  option: string
 }
 
 interface ISelectProps {
-  values: IValue[]
-  callback: (e: string) => void
+  options: IChildrenOption[]
+  onChangeSelect: (e: string) => void
   selected: string | undefined
   style?: React.CSSProperties | undefined
   className?: string | undefined
 }
+
 const Select = (props: ISelectProps) => {
-  const { values, callback, selected, style, className } = props
+  const { options, onChangeSelect, selected, style, className } = props
   return (
     <select
       className={className}
       style={style}
       defaultValue={selected}
-      onChange={(e) => callback(e.currentTarget.value)}
+      onChange={(e) => onChangeSelect(e.currentTarget.value)}
     >
-      {values.map(({ value, text }, i) => (
+      {options.map(({ value, option }, i) => (
         <option key={i} value={value}>
-          {text}
+          {option}
         </option>
       ))}
     </select>

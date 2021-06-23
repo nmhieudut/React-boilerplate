@@ -1,8 +1,8 @@
 export const LSManager = {
   // token
-  setToken: (token: string) => localStorage.setItem('TOKEN', token),
-  getToken: () => localStorage.getItem('TOKEN')?.toString(),
-  removeToken: () => localStorage.remove('TOKEN'),
+  setToken: (token: string) => localStorage.setItem('access-token', token),
+  getToken: () => localStorage.getItem('access-token')?.toString(),
+  removeToken: () => localStorage.remove('access-token'),
 
   //language
   setLanguage: (lang: string) => localStorage.setItem('LANG', lang),
