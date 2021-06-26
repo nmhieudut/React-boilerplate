@@ -12,12 +12,11 @@ const Footer = () => {
     setDefaultLanguage(lang)
     i18n.changeLanguage(lang)
     LSManager.setLanguage(lang)
-    window.location.reload()
   }
   return (
-    <div className="footer max-w-screen-2xl mx-auto">
-      <div className="wrapper pt-6 px-20">
-        <div className="footer__language-area">
+    <div className="footer">
+      <div className="max-w-screen-2xl mx-auto pt-6 px-20 flex">
+        <div className="flex items-center">
           {t('content.footer.changeLocale')}:
           <Select
             className="ml-2 p-2"

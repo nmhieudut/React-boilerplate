@@ -1,7 +1,7 @@
 import axiosClient from 'core/api'
 import Rest from 'core/api/List'
 
-const loginCall = async (username: string, password: string) => {
+const Login = async (username: string, password: string) => {
   const userPayload = {
     username,
     password,
@@ -9,4 +9,4 @@ const loginCall = async (username: string, password: string) => {
   return await axiosClient.post(Rest.login, userPayload)
 }
 
-export { loginCall }
+export { Login }

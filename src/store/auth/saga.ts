@@ -1,13 +1,13 @@
 import { LSManager } from './../../core/utils/localstoragemanager'
 import * as actionTypes from './types'
-import { loginCall } from 'services/auth'
+import { Login } from 'services/auth'
 import { call } from 'typed-redux-saga'
 import { put, takeLatest } from 'redux-saga/effects'
 
 function* login(action: actionTypes.SignInActionType) {
   try {
     const data: any = yield* call(
-      loginCall,
+      Login,
       action.payload.username,
       action.payload.password
     )
