@@ -21,7 +21,7 @@ export default function Header(props: IHeaderProps) {
   }
 
   return (
-    <div className="flex items-center">
+    <div className="px-20 flex items-center header-menu">
       <Link to="#" className="header-logo mr-24">
         Logo
       </Link>
@@ -31,22 +31,22 @@ export default function Header(props: IHeaderProps) {
       >
         <div className="flex menu-collapse-links">
           <Link className="menu-item" to="/home">
-            {t('content.menu.home')}
+            {t('header.menu.home')}
           </Link>
           {navMenu.map((item, i) => {
             return (
               <Link key={i} className="menu-item ml-14" to={item.page_path}>
-                {t(`content.menu.${item.children}`)}
+                {t(`header.menu.${item.children}`)}
               </Link>
             )
           })}
         </div>
-        <div className="auth-menu">
+        <div className="flex auth-menu items-center auth-menu">
           <Link onClick={onLogin} className="btn btn-transparent" to="#">
-            {t('content.menu.login')}
+            {t('header.menu.login')}
           </Link>
           <Link className="btn btn-primary" to="#">
-            {t('content.menu.signup')}
+            {t('header.menu.signup')}
           </Link>
         </div>
       </div>

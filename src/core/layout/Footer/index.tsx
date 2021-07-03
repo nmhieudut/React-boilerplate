@@ -14,10 +14,10 @@ const Footer = () => {
     LSManager.setLanguage(lang)
   }
   return (
-    <div className="footer">
+    <div className="relative footer">
       <div className="max-w-screen-2xl mx-auto pt-6 px-20 flex">
         <div className="flex items-center">
-          {t('content.footer.changeLocale')}:
+          {t('header.footer.changeLocale')}:
           <Select
             className="ml-2 p-2"
             onChangeSelect={switchLanguage}

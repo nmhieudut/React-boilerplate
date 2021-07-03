@@ -1,5 +1,14 @@
 @import 'styles/custom';
 
+.header-menu {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 6rem;
+  border-bottom: 1px solid rgb(224, 223, 223);
+}
+
 .menu-item {
   color: $gray-dark;
   &:hover {

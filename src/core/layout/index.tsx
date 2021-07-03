@@ -7,8 +7,8 @@ export const Layout = () => {
   return (
     <BrowserRouter>
       <div className="max-w-screen-2xl mx-auto">
+        <Header />
         <div className="pt-6 px-20">
-          <Header />
           <Container />
         </div>
       </div>
