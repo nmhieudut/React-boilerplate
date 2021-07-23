@@ -8,6 +8,10 @@ export const LSManager = {
   setLanguage: (lang: string) => localStorage.setItem('LANG', lang),
   getLanguage: () => localStorage.getItem('LANG')?.toString(),
 
+  //set theme
+  setTheme: (theme: string) => localStorage.setItem('THEME', theme),
+  getTheme: () => localStorage.getItem('THEME'),
+
   // clear all data in local storage
   clearSite: () => localStorage.clear(),
 }

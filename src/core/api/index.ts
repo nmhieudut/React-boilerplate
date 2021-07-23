@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { LSManager } from 'core/utils/localstoragemanager'
+import { LSManager } from 'utils/localstoragemanager'
 
 const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_SERVER_URL + '/api',

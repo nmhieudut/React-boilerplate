@@ -1,4 +1,4 @@
-import { LSManager } from './../../core/utils/localstoragemanager'
+import { LSManager } from 'utils/localstoragemanager'
 import * as actionTypes from './types'
 import { Login } from 'services/auth'
 import { call } from 'typed-redux-saga'
