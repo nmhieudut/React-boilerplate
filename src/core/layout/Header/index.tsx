@@ -1,25 +1,29 @@
-import { useState, useEffect, useRef } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { SignInAction } from 'store/auth'
-// import { RootState } from 'store/reducers'
-// import logo from 'assets/logo.png'
-import { navMenu } from 'constants/navbar'
-import t from 'utils/translation'
-import { HashLink } from 'react-router-hash-link'
-import { Divide as Hamburger } from 'hamburger-react'
+import {
+  Box,
+  Button,
+  Flex,
+  Stack,
+  Tooltip,
+  useColorMode,
+  useColorModeValue
+} from '@chakra-ui/react'
+// import { color } from 'constants/color'
+import { navs } from 'constants/navbar'
+import Hamburger from 'hamburger-react'
+import { useEffect, useRef, useState } from 'react'
+import { FaMoon, FaRegLightbulb } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
-  const [showLinks, setShowLinks] = useState(false)
-  // const dispatch = useDispatch()
   const wrapperRef = useRef<any>(null)
-  // const isLoading = useSelector((state: RootState) => state.auth.isLoading)
-  // const onLogin = () => {
-  //   const config = {
-  //     username: 'eve.holt@reqres.in',
-  //     password: 'cityslicka',
-  //   }
-  //   dispatch(SignInAction(config))
-  // }
+  const [showLinks, setShowLinks] = useState(false)
+  const bg = useColorModeValue('white', 'gray.800')
+  const { colorMode, toggleColorMode } = useColorMode()
+  const borderColor = useColorModeValue(
+    '1px solid rgba(229,231,235,1)',
+    '1px solid rgb(31, 41, 55)'
+  )
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (!wrapperRef.current.contains(event.target)) {
@@ -34,77 +38,89 @@ export default function Header() {
     }
   }, [wrapperRef, showLinks])
 
-  const scrollWithOffset = (el: HTMLElement) => {
-    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset
-    const yOffset = -100
-    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' })
+  const Logo = () => {
+    return (
+      <div className="flex justify-center items-center">
+        <Link
+          to="/"
+          className="opacity-60 duration-300 hover:opacity-100 transform hover:scale-110 transition"
+        >
+          <img src="/logo512.png" width={80} height={80} alt="logo" />
+        </Link>
+      </div>
+    )
   }
-
-  return (
-    <div className="flex items-center header-menu">
-      {/* <HashLink
-        scroll={(el) => scrollWithOffset(el)}
-        to="/home#banner"
-        className="flex text-white items-center header-logo mr-24 text-white-300"
+  const MenuItem = ({ href, label }) => {
+    return (
+      <Link
+        to={href}
+        className="duration-500 transform hover:scale-110 hover:-translate-y-1 transition rounded-xl px-8 py-2"
       >
-        <img src={logo} alt="" />
-      </HashLink> */}
-      <div
-        className="lg:flex hidden justify-center items-center ml-auto menu-collapse"
+        {label}
+      </Link>
+    )
+  }
+  const MenuToggle = () => {
+    return (
+      <Box
         ref={wrapperRef}
-      >
-        <div className="flex menu-collapse-links">
-          {navMenu.map((item, i) => {
-            return (
-              <HashLink
-                scroll={(el) => scrollWithOffset(el)}
-                onClick={() => setShowLinks(false)}
-                key={i}
-                className="menu-item ml-14"
-                to={item.page_path}
-              >
-                {t(`header.menu.${item.children}`)}
-              </HashLink>
-            )
-          })}
-        </div>
-        {/* <div className="flex auth-menu items-center auth-menu">
-          <Link onClick={onLogin} className="btn btn-transparent" to="#">
-            {t('header.menu.login')}
-          </Link>
-          <Link className="btn btn-primary" to="#">
-            {t('header.menu.signup')}
-          </Link>
-        </div> */}
-      </div>
-      <div
-        className={'collapse ' + (showLinks ? '' : 'collapse-close')}
-        ref={wrapperRef}
-      >
-        <div className="flex menu-collapse-links">
-          {navMenu.map((item, i) => {
-            return (
-              <HashLink
-                scroll={(el) => scrollWithOffset(el)}
-                onClick={() => setShowLinks(false)}
-                key={i}
-                className="menu-item ml-14"
-                to={item.page_path}
-              >
-                {t(`header.menu.${item.children}`)}
-              </HashLink>
-            )
-          })}
-        </div>
-      </div>
-      <button
-        ref={wrapperRef}
-        id="close-icon"
-        className="ml-auto toggle-icon my-5"
+        display={{ base: 'block', md: 'none' }}
         onClick={() => setShowLinks(!showLinks)}
       >
-        <Hamburger toggled={showLinks} direction="right" />
-      </button>
-    </div>
+        <Hamburger toggled={showLinks} direction="left" />
+      </Box>
+    )
+  }
+  const NavBarContainer = ({ children }) => {
+    return (
+      <Flex
+        as="nav"
+        align="center"
+        justify="space-between"
+        wrap="wrap"
+        w="100%"
+        className="container"
+      >
+        {children}
+      </Flex>
+    )
+  }
+  return (
+    <Box
+      className="fixed top-0 left-0 z-50 w-full"
+      bg={bg}
+      borderBottom={borderColor}
+    >
+      <NavBarContainer>
+        <Logo />
+        <MenuToggle />
+        <Box
+          display={{ base: showLinks ? 'block' : 'none', md: 'block' }}
+          flexBasis={{ base: '100%', md: 'auto' }}
+        >
+          <Stack
+            py={2}
+            align="center"
+            justify={['center', 'space-between', 'flex-end', 'flex-end']}
+            direction={['column', 'row', 'row', 'row']}
+          >
+            {navs.map((n, i) => (
+              <MenuItem key={i} href={n.to} label={n.label} />
+            ))}
+            <Tooltip
+              hasArrow
+              placement="bottom-end"
+              label={colorMode === 'light' ? 'Nền tối' : 'Nền sáng'}
+            >
+              <Button onClick={toggleColorMode}>
+                <span>
+                  {colorMode === 'light' ? <FaMoon /> : <FaRegLightbulb />}
+                </span>
+              </Button>
+            </Tooltip>
+          </Stack>
+        </Box>
+      </NavBarContainer>
+    </Box>
   )
 }

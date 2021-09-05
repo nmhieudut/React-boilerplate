@@ -1,19 +1,19 @@
 interface INavMenu {
-  page_path: string
-  children: string
+  to: string
+  label: string
 }
 
-export const navMenu: INavMenu[] = [
+export const navs: INavMenu[] = [
   {
-    page_path: '/blog',
-    children: 'blog',
+    to: '/blog',
+    label: 'blog',
   },
   {
-    page_path: '/docs',
-    children: 'docs',
+    to: '/docs',
+    label: 'docs',
   },
   {
-    page_path: '/contact',
-    children: 'contact',
+    to: '/contact',
+    label: 'contact',
   },
 ]

@@ -2,28 +2,3 @@ $blue-blur: rgb(64, 64, 182);
 $gray-dark: #757575;
 $gray-light: #d4d4d4;
 $blue-gradient: rgb(4, 0, 78);
-
-.transparent-icon {
-  background: transparent;
-}
-
-.slick-dots li button:before {
-  color:#fff;
-}
-.slick-dots li.slick-active button:before {
-  color:#fff;
-  opacity: 1
-}
-
-.bg-none {
-  background: none
-}
-.underline {
-  background: rgb(132, 128, 199);
-  background: linear-gradient(
-    90deg,
-    rgba(132, 128, 199, 1) 0%,
-    rgba(77, 182, 174, 1) 50%,
-    rgba(0, 212, 255, 1) 100%
-  );
-}

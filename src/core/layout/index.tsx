@@ -2,7 +2,7 @@ import { Suspense, lazy } from 'react'
 import Header from './Header'
 import Container from './Container'
 import { BrowserRouter } from 'react-router-dom'
-import Spinner from 'core/components/common/Spinner'
+
 export const Layout = () => {
   const Footer = lazy(() => import('./Footer'))
   return (
@@ -13,11 +13,7 @@ export const Layout = () => {
         </div>
       </header>
       <Suspense
-        fallback={
-          <div className="mt-12 flex justify-center">
-            <Spinner />
-          </div>
-        }
+        fallback={<div className="mt-12 flex justify-center">Loading...</div>}
       >
         <div>
           <Container />
