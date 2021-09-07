@@ -7,7 +7,6 @@ import {
   useColorMode,
   useColorModeValue
 } from '@chakra-ui/react'
-// import { color } from 'constants/color'
 import { navs } from 'constants/navbar'
 import Hamburger from 'hamburger-react'
 import { useEffect, useRef, useState } from 'react'

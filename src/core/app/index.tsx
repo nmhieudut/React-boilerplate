@@ -10,11 +10,11 @@ const App: React.FC = () => {
   console.log('======> App is on', process.env.NODE_ENV)
   return (
     <ChakraProvider>
-        <I18nextProvider i18n={i18n}>
-          <Provider store={store}>
-            <Layout />
-          </Provider>
-        </I18nextProvider>
+      <I18nextProvider i18n={i18n}>
+        <Provider store={store}>
+          <Layout />
+        </Provider>
+      </I18nextProvider>
     </ChakraProvider>
   )
 }
