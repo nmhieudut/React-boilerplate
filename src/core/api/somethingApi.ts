@@ -1,5 +1,5 @@
 import { ListResponse, something } from 'core/models'
-import axiosClient from './axiosClient'
+import axiosClient from 'core/libs/axiosClient'
 
 const somethingApi = {
   getAll(): Promise<ListResponse<something>> {

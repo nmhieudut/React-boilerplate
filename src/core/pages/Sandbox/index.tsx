@@ -1,5 +1,5 @@
 import { Redirect } from 'react-router-dom'
-import isDev from "helper/isDev"
+import isDev from "utils/isDev"
 
 const Sandbox = () => {
   if (isDev()) {

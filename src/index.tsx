@@ -1,6 +1,6 @@
 import { ColorModeScript } from '@chakra-ui/react'
 import App from 'core/app'
-import theme from 'helper/theme'
+import theme from 'utils/theme'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
