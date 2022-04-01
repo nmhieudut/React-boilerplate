@@ -3,10 +3,10 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
-@import 'styles/header';
-@import 'styles/footer';
-@import 'styles/custom';
-@import 'styles/global';
+@import './header';
+@import './footer';
+@import './custom';
+@import './global';
 * {
   font-family: 'Quicksand', sans-serif;
   letter-spacing: 1px;

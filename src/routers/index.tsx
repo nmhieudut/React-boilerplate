@@ -1,22 +1,21 @@
 import { Suspense, lazy } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { routes } from 'constants/route'
 
 export default function Routers() {
   return (
     <Suspense fallback={<div className="text-center">Loading...</div>}>
-      <Switch>
+      <Routes>
         {routes.map((route, i) => {
           return (
             <Route
               key={i}
-              exact={route.exact}
               path={`/${route.path}`}
-              component={lazy(() => import(`core/${route.componentPath}`))}
+              element={lazy(() => import(`core/${route.componentPath}`))}
             />
           )
         })}
-      </Switch>
+      </Routes>
     </Suspense>
   )
 }

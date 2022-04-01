@@ -1,4 +1,4 @@
-import axiosClient from 'core/api/axiosClient'
+import axiosClient from 'core/libs/axios'
 import Rest from 'core/api/List'
 
 const Login = async (username: string, password: string) => {
